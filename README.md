@@ -7,8 +7,8 @@ Bookmarks are saved in `$BOOKMARKS_DIR` (`~/.bookmarks` by default).
 
 ### Commands
 ```fish
-b -d bookmark # Deletes the bookmark
-b -l          # Lists the bookmarks and their target
+b -d bookmark # Delete the bookmark
+b -l          # List the bookmarks and their target
 b name        # Save the current folder as a bookmark
 
 o bookmark    # Open the bookmark
