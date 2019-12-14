@@ -20,14 +20,17 @@ To retrieve the old behavior you can edit (`funced` then `funcsaved`) the `cd` f
 ```fish
 function cd --description 'Change directory'
     ...
-    builtin cd (realpath $argv) # builtin cd $argv
+    # Resolve the symlinks
+    if test (pwd -P) != (pwd -L)
+        builtin cd (realpath $PWD)
+    end
     ...
 end
 ```
 To keep both behaviors you can write your own function:
 ```fish
 function cdr
-	builtin cd (realpath $argv)
+    builtin cd (realpath $argv)
 end
 ```
 
