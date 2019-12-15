@@ -28,6 +28,10 @@ function b
 
             case '*'
                 set -l name $argv[1]
+                if test -L "$bookmarks/$name"
+                    echo "b: $bookmark: Bookmark already exist"
+                    return 1
+                end
                 ln -s $PWD "$bookmarks/$name" 2>/dev/null
         end
     end
