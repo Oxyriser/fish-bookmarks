@@ -4,7 +4,7 @@ end
 
 mkdir -p $BOOKMARKS_DIR
 
-if not set -qx $CDPATH
+if set -qx $CDPATH
     set -gx CDPATH "."
 end
 
