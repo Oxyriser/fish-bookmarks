@@ -1,4 +1,4 @@
-function b
+function b --description 'Manage bookmarks'
     set -l bookmarks $BOOKMARKS_DIR
 
     if test (count $argv) -eq 0
@@ -21,7 +21,7 @@ function b
 
             case -l
                 ls -ldn $BOOKMARKS_DIR/* | awk '{n=split($9, a, "/"); print a[n]" "$10" "$11}'
-            
+
             case -h --help '-*'
                 echo -e "Usage: b name\n       b -d bookmark\n       b -l" 1>&2
                 return 1
