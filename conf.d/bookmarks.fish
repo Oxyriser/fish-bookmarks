@@ -1,13 +1,11 @@
-if set -q $BOOKMARKS_DIR
-    set -U BOOKMARKS_DIR "$HOME/.bookmarks"
-end
+# Set up bookmarks' dir path
+set -q $BOOKMARKS_DIR && set -U BOOKMARKS_DIR "$HOME/.bookmarks"
 
-mkdir -p $BOOKMARKS_DIR
+# Create bookmarks' dir
+test -d $BOOKMARKS_DIR || mkdir -p $BOOKMARKS_DIR
 
-if set -qx $CDPATH
-    set -gx CDPATH "."
-end
+# Set up CDPATH
+set -qx $CDPATH && set -gx CDPATH "."
 
-if not contains $BOOKMARKS_DIR $CDPATH
-    set -a CDPATH $BOOKMARKS_DIR
-end
+# Add bookmarks' dir to CAPTH
+contains $BOOKMARKS_DIR $CDPATH || set -a CDPATH $BOOKMARKS_DIR
