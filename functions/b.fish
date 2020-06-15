@@ -24,7 +24,6 @@ function b --description 'Manage bookmarks'
 
             case -h --help '-*'
                 echo -e "Usage: b name\n       b -d bookmark\n       b -l" 1>&2
-                return 1
 
             case '*'
                 set -l name $argv[1]
